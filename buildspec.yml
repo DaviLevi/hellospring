@@ -1,0 +1,31 @@
+version: 0.2
+
+phases:
+
+
+  install:
+    runtime-versions:
+      java: corretto11
+      
+      
+  pre_build:
+    commands:
+      - echo Skipped pre_build phase on `date`
+      
+      
+  build:
+    commands:
+      - echo Executing build phase on `date`
+      - java -version
+      - mvn clean package
+      
+      
+  post_build:
+    commands:
+      - echo Executing post_build phase on `date`
+      - echo Build complete
+      
+      
+artifacts:
+  files:
+    - target/hello-spring.jar
